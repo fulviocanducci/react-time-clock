@@ -3,10 +3,10 @@ import { render } from 'react-dom';
 import './style.css';
 
 function App() {
-  const [time, setTime] = useState<number>(1500); // 60 * 25
+  const [time, setTime] = useState<number>(1500); // 60 * 25 // 25 minutes
   const [action, setAction] = useState<boolean>(false);
   const [firstHour, lastHour] = String(Math.floor(time / 60)).padStart(2, '0').split('');
-  const [firstMinute, lastMinute] = String(Math.floor(time % 60)).padStart(2, '0').split('');
+  const [firstMinute, lastMinute] = String(time % 60).padStart(2, '0').split('');
   useEffect(() => {
     if (action && time > 0) {
       setTimeout(() => {
